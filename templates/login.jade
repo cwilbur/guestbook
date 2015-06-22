@@ -1,6 +1,6 @@
 #login
   if user
-    | You are logged in as #{ session.user.displayName }.
+    | You are logged in as #{ user.displayName }.
     button(id='logout-button' type='button') Log me out
   else
     button(id='login-button' type='button') Log in with Github!
