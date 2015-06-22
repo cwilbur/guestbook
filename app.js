@@ -54,7 +54,7 @@ app.use('/auth', authRouter);
 
 app.get('/', function(req, res) {
   res.render('layout', {
-    name: "Max",
+    name: 'Max',
     message: 'Welcome to our contacts page! I hope you have a good stay.',
     user: req.user
   });
