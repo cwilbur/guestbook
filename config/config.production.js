@@ -8,12 +8,6 @@ config.serverPort = process.env.PORT; // heroku is particular
 
 config.authCallbackUrl = 'https://intense-coast-5573.herokuapp.com/auth/github/callback';
 
-// express settings
-
-config.expressSettings = {
-  'trust proxy': 1
-};
-
 // cookie settings
 
 config.cookieOptions.secure = true;

@@ -28,6 +28,10 @@ var mongoStore = new mongoSessionDB({
   collection: 'webSessions'
 });
 
+if (config.env === 'production') {
+  app.set('trust proxy', 1);
+}
+
 app.use(session({
   store: mongoStore,
   secret: config.secrets.SESSION_KEY,
