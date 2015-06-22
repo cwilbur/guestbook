@@ -1,9 +1,10 @@
 html
   head
-    title Placeholder Page
-    link(rel='stylesheet', href='styles/main.css')
+    title Guestbook
     script(src='https://code.jquery.com/jquery-2.1.4.js')
     script(src='scripts/actions.js')
   body
-    h1 Placeholder
-    h4 This is where the magic happens, right?
+    h1 #{name}'s Contact Warehouse
+    h4 #{message}
+
+    include ./login.jade

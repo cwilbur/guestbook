@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
-  console.log('jQuery was here');
+  $('#login-button').on('click', function() {
+    window.location.href = '/auth/github';
+  });
+
+  $('#logout-button').on('click', function() {
+    window.location.href = '/auth/logout';
+  });
 
 });
