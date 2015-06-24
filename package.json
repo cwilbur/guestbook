@@ -20,14 +20,12 @@
     "mongoose-autopopulate": "^0.1.0",
     "passport": "^0.2.2",
     "passport-anonymous": "^1.0.1",
-    "passport-github2": "^0.1.9"
+    "passport-github2": "^0.1.9",
+    "passport-mock-thirdparty": "^0.1.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-blanket": "0.0.8",
-    "grunt-concurrent": "^1.0.0",
     "grunt-contrib-jshint": "^0.11.2",
-    "grunt-istanbul": "^0.5.0",
     "grunt-jasmine-nodejs": "^1.4.0",
     "grunt-jsbeautifier": "^0.2.10",
     "grunt-jscs": "^1.8.0",
@@ -35,9 +33,10 @@
     "grunt-node-inspector": "^0.2.0",
     "grunt-nodemon": "^0.4.0",
     "grunt-open": "^0.2.3",
-    "grunt-plato": "^1.2.1",
     "load-grunt-config": "^0.17.1",
     "passport-local": "^1.0.0",
+    "passport-mock": "cwilbur/passport-mock-thirdparty",
+    "passport-mock-thirdparty": "cwilbur/passport-mock-thirdparty",
     "time-grunt": "^1.2.1"
   },
   "engines": {
