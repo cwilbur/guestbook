@@ -7,15 +7,14 @@ config.hostname = 'intense-coast-5573.herokuapp.com';
 config.serverPort = process.env.PORT; // heroku is particular
 
 config.authCallbackUrl = 'https://intense-coast-5573.herokuapp.com/auth/github/callback';
-config.authStrategy = 'github'
+config.authStrategy = 'github';
 
 // cookie settings
 
 config.cookieOptions.secure = true;
 
 // mongo database
-
-config.mongo.dbUrl = 'mongodb://stripey:tigeriffic@ds041327.mongolab.com:43127/guestbook';
+config.mongo.dbUrl = 'mongodb://stripey:tigeriffic@ds041327.mongolab.com:41327/guestbook';
 
 // make sure we can fetch our secrets from the environment
 

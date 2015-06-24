@@ -3,6 +3,7 @@ var config = require('./config');
 // models
 
 var mongoose = require('mongoose');
+console.log('CONNECTING TO MONGOOSE at ' + config.mongo.dbUrl);
 mongoose.connect(config.mongo.dbUrl);
 var Entry = require('./lib/entry.js');
 var User = require('./lib/user.js');
@@ -27,6 +28,7 @@ app.use(morgan('dev'));
 // must be configured before authentication
 
 var session = require('express-session');
+console.log('CONNECTING TO MONGO FOR SESSIONS AT: ' + config.mongo.dbUrl);
 var MongoSessionDB = require('connect-mongodb-session')(session);
 var mongoStore = new MongoSessionDB({
   uri: config.mongo.dbUrl,
