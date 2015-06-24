@@ -34,9 +34,7 @@
     "grunt-nodemon": "^0.4.0",
     "grunt-open": "^0.2.3",
     "load-grunt-config": "^0.17.1",
-    "passport-local": "^1.0.0",
     "passport-mock": "cwilbur/passport-mock-thirdparty",
-    "passport-mock-thirdparty": "cwilbur/passport-mock-thirdparty",
     "time-grunt": "^1.2.1"
   },
   "engines": {
