@@ -1,6 +1,6 @@
 {
   "all": {
-    "src": ["<%= paths.project %>"],
+    "src": ["<%= paths.source %>"],
     "ignore": [
       "node_modules/"
     ]
@@ -9,7 +9,7 @@
 
     "curly": true,
     "eqeqeq": true,
-    "strict": true,
+    "strict": false,
     "undef": true,
     "sub": true,
     "esnext": true,

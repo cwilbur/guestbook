@@ -1,6 +1,6 @@
 {
   "status": {
-    "src": ["<%= paths.project %>"],
+    "src": ["<%= paths.source %>", "!*/**/*.json"],
     "options": {
       "preset": "airbnb",
       "requirePaddingNewLinesAfterBlocks": {
@@ -12,7 +12,7 @@
     }
   },
   "write": {
-    "src": ["<%= paths.project %>"],
+    "src": ["<%= paths.source %>", "!*/**/*.json"],
     "options": {
       "preset": "airbnb",
       "requirePaddingNewLinesAfterBlocks": {

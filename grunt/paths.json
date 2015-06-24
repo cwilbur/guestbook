@@ -4,8 +4,7 @@
     "lib/**/*.js",
     "config/**/*.js",
     "config/**/*.json",
-    "public/**/*.js",
-    "templates/**/*.jade"
+    "public/**/*.js"
   ],
   "tests": [
     "spec/**/*.spec.js"

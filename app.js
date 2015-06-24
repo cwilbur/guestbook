@@ -22,8 +22,8 @@ app.use(express.static(__dirname + '/public'));
 // must be configured before authentication
 
 var session = require('express-session');
-var mongoSessionDB = require('connect-mongodb-session')(session);
-var mongoStore = new mongoSessionDB({
+var MongoSessionDB = require('connect-mongodb-session')(session);
+var mongoStore = new MongoSessionDB({
   uri: config.mongo.uri,
   collection: 'webSessions'
 });

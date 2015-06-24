@@ -14,7 +14,6 @@ config.expressSettings = {};
 
 config.cookieOptions = {};
 
-
 // mongo database
 
 config.mongo = {};
