@@ -3,7 +3,7 @@ var config = require('./config');
 // models
 
 var mongoose = require('mongoose');
-mongoose.connect(config.mongo.uri);
+mongoose.connect(config.mongo.dbUrl);
 var Entry = require('./lib/entry.js');
 var User = require('./lib/user.js');
 
@@ -18,13 +18,18 @@ app.set('views', './templates');
 
 app.use(express.static(__dirname + '/public'));
 
+// logging
+
+var morgan = require('morgan');
+app.use(morgan('dev'));
+
 // sessions
 // must be configured before authentication
 
 var session = require('express-session');
 var MongoSessionDB = require('connect-mongodb-session')(session);
 var mongoStore = new MongoSessionDB({
-  uri: config.mongo.uri,
+  uri: config.mongo.dbUrl,
   collection: 'webSessions'
 });
 
@@ -54,9 +59,8 @@ app.use('/auth', authRouter);
 
 app.get('/', function(req, res) {
   res.render('layout', {
-    name: 'Max',
-    message: 'Welcome to our contacts page! I hope you have a good stay.',
-    user: req.user
+    authStrategy: config.authStrategy,
+    user: req.user,
   });
 });
 

@@ -1,7 +1,26 @@
-#login
-  if user
-    | You are logged in as #{ user.username } (#{ user.displayName }).
-    button(id='logout-button' type='button') Log me out
-  else
-    button(id='login-button' type='button') Log in with Github!
+#login.panel.panel-default
+  .panel-heading
+    | Log in to post comments
+  .panel-body
+    if authStrategy === 'github'
+      if user
+        | You are logged in as #{ user.username } (#{ user.displayName }).
+        br
+        button.btn.btn-primary(id='logout-button' type='button') Log me out
+      else
+        | You are not currently logged in.
+        br
+        button.btn.btn-primary(id='login-button' type='button') Log in with Github!
+    else if authStrategy === 'local'
+      if user
+        | You are logged in as #{ user.username } (#{ user.displayName }).
+        br
+        button.btn.btn-primary(id='logout-button' type='button') Log me out
+      else
+        | You are not currently logged in.
+        br
+        .input-group
+          input.fomr-control(type='text' id='fake-username' placeholder='User to log in as')
+          span.input-group-btn
+            button.btn.btn-primary(id='fake-login-button' type='button') Fake a login!
 

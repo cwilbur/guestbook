@@ -1,0 +1,16 @@
+if user
+#add-entry-form.panel.panel-default
+  .col-md-2 &nbsp;
+  .col-md-8
+    form.form-horizontal
+      fieldset
+        legend Guestbook Entry
+        .control-group
+          label.control-label Entry
+          .controls
+            textarea(id='entry-content') Enter something for the guestbook here
+        .control-group
+          label control-label
+          .controls
+            button.btn.btn-primary(id='entry-submit' name='entry-submit')Post
+  .col-md-2 &nbsp;
