@@ -5,14 +5,25 @@ var config = require('./config');
 var mongoose = require('mongoose');
 console.log('CONNECTING TO MONGOOSE at ' + config.mongo.dbUrl);
 mongoose.connect(config.mongo.dbUrl);
-var Entry = require('./lib/entry.js');
-var User = require('./lib/user.js');
+var Entry = require('./lib/models/entry.js');
+var User = require('./lib/models/user.js');
 
 // basic express setup, views
 
 var jade = require('jade');
 var express = require('express');
 var app = express();
+
+app.use(function(req, res, next) {
+  // logging to catch an erroneous 'close' event for ajax calls
+  req.on('close', function(err) {
+    console.log('request connection closed early');
+  });
+  req.on('finish', function(err) {
+    console.log('request connection finished');
+  });
+  next();
+});
 
 app.set('view engine', 'jade');
 app.set('views', './templates');
@@ -49,14 +60,15 @@ app.use(session({
 
 // authentication
 
-var passport = require('./lib/passport.js');
-app.use(passport.initialize());
-app.use(passport.session());
+var passportAuth = require('./lib/auth');
 
-var apiRouter = require('./lib/api-routes.js');
+app.use(passportAuth.initialize());
+app.use(passportAuth.session());
+
+var apiRouter = require('./lib/routes/api.js');
 app.use('/api', apiRouter);
 
-var authRouter = require('./lib/auth-routes.js');
+var authRouter = require('./lib/routes/auth.js');
 app.use('/auth', authRouter);
 
 app.get('/', function(req, res) {
@@ -64,6 +76,12 @@ app.get('/', function(req, res) {
     authStrategy: config.authStrategy,
     user: req.user,
   });
+});
+
+app.use(function(err, req, res, next) {
+  console.log(err.message);
+  console.error(err.stack);
+  res.sendStatus(500);
 });
 
 var server = app.listen(config.serverPort, function() {
